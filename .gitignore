@@ -1,0 +1,17 @@
+# Virtual environment
+cwvenv/
+
+# Data files
+data/
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# IDE specific files
+.vscode/
+.idea/
