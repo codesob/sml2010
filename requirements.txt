@@ -4,5 +4,6 @@ matplotlib
 scikit-learn
 seaborn
 scipy
-sklearn
 jupyter
+statsmodels
+darts
