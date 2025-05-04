@@ -1,6 +1,12 @@
+import os
 import pandas as pd
 
-def load_df1():
+def load_df1(use_processed=False):
+    processed_path = './data/processed_df1.pkl'
+    if use_processed and os.path.exists(processed_path):
+        df1 = pd.read_pickle(processed_path)
+        return df1
+
     with open('./data/NEW-DATA-1.T15.txt', 'r') as file:
         lines = file.readlines()
     header = lines[0].strip()
@@ -17,7 +23,12 @@ def load_df1():
     df1 = df1.dropna(axis=1, how='all')
     return df1
 
-def load_df2():
+def load_df2(use_processed=False):
+    processed_path = './data/processed_df2.pkl'
+    if use_processed and os.path.exists(processed_path):
+        df2 = pd.read_pickle(processed_path)
+        return df2
+
     with open('./data/NEW-DATA-2.T15.txt', 'r') as file:
         lines = file.readlines()
     header = lines[0].strip()
@@ -33,3 +44,11 @@ def load_df2():
             df2[col] = pd.to_numeric(df2[col], errors='coerce')
     df2 = df2.dropna(axis=1, how='all')
     return df2
+
+def save_processed_df1(df1):
+    processed_path = './data/processed_df1.pkl'
+    df1.to_pickle(processed_path)
+
+def save_processed_df2(df2):
+    processed_path = './data/processed_df2.pkl'
+    df2.to_pickle(processed_path)
