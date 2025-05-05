@@ -32,6 +32,3 @@ Summary of EDA, Visualization, Modeling Algorithms, and Evaluation Metrics in th
 - Statistical summaries from ARIMA model
 - Visual comparison plots of actual vs predicted values and error distributions
 
-In total, the folder contains multiple EDA and visualization techniques (more than 15 types), 5 modeling algorithms, and at least 6 evaluation metrics.
-
-This comprehensive set covers the typical workflow of data analysis, modeling, and evaluation.
