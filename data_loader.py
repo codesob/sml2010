@@ -12,7 +12,17 @@ def load_df1(use_processed=False):
     header = lines[0].strip()
     column_names = [col.split(':', 1)[1] for col in header.split() if ':' in col]
     data_rows = [line.strip().split() for line in lines[1:] if line.strip()]
+    
     df1 = pd.DataFrame(data_rows, columns=column_names)
+    columns_to_drop = [
+    'Exterior_Entalpic_1',
+    'Exterior_Entalpic_2',
+    'Exterior_Entalpic_turbo'
+]
+
+# Drop the columns
+    df1 = df1.drop(columns=columns_to_drop)
+    # Convert the 'Date' and 'Time' columns to datetime
     df1['Date'] = pd.to_datetime(df1['Date'], format='%d/%m/%Y')
     df1['Time'] = pd.to_datetime(df1['Time'], format='%H:%M')
     df1['Hour'] = df1['Time'].dt.hour
@@ -35,6 +45,14 @@ def load_df2(use_processed=False):
     column_names = [col.split(':', 1)[1] for col in header.split() if ':' in col]
     data_rows = [line.strip().split() for line in lines[1:] if line.strip()]
     df2 = pd.DataFrame(data_rows, columns=column_names)
+    columns_to_drop = [
+        'Exterior_Entalpic_1',
+        'Exterior_Entalpic_2',
+        'Exterior_Entalpic_turbo'
+    ]
+    # Drop the columns
+    df2 = df2.drop(columns=columns_to_drop)
+    # Convert the 'Date' and 'Time' columns to datetime
     df2['Date'] = pd.to_datetime(df2['Date'], format='%d/%m/%Y')
     df2['Time'] = pd.to_datetime(df2['Time'], format='%H:%M')
     df2['Hour'] = df2['Time'].dt.hour
