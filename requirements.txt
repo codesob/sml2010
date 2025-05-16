@@ -7,3 +7,5 @@ scipy
 jupyter
 statsmodels
 darts
+tensorflow
+keras
